@@ -2,7 +2,7 @@ package com.kodilla.patterns.builder.pizza;
 
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.Assert.assertEquals;
 
 class PizzaTestSuite {
 
