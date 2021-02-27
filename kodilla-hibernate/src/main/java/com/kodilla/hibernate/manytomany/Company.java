@@ -5,11 +5,19 @@ import javax.validation.constraints.NotNull;
 import java.util.ArrayList;
 import java.util.List;
 
+@NamedNativeQueries(value = {
 @NamedNativeQuery(
         name = "Company.retrieveByFirstThree",
         query = "SELECT * FROM COMPANIES" +
                 " WHERE COMPANY_NAME LIKE CONCAT(:NAME, '%')",
         resultClass = Company.class
+),
+@NamedNativeQuery(
+        name = "Company.findCompanyByPartOfName",
+        query = "SELECT * FROM COMPANIES" +
+                "WHERE company_name LIKE :SEARCHCOMPANYBYTEXT",
+        resultClass = Company.class)
+}
 )
 @Entity
 @Table(name = "COMPANIES")
@@ -56,4 +64,6 @@ public class Company {
     private void setEmployees(List<Employee> employees) {
         this.employees = employees;
     }
+
+    
 }

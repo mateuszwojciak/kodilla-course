@@ -5,11 +5,15 @@ import javax.validation.constraints.NotNull;
 import java.util.ArrayList;
 import java.util.List;
 
-@NamedQueries(
-        @NamedQuery(
+@NamedNativeQueries(value = {
+        @NamedNativeQuery(
                 name = "Employee.retrieveByLastname",
-                query = "FROM Employee WHERE lastname = :LASTNAME"
-        )
+                query = "FROM Employee WHERE lastname = :LASTNAME"),
+        @NamedNativeQuery(
+                name = "Employee.findEmployeeByPartOfName",
+                query = "SELECT * FROM Employee WHERE lastname :SEARCHEMPLOYEEBYTEXT",
+                resultClass = Employee.class)
+}
 )
 @Entity
 @Table(name = "EMPLOYEES")
