@@ -7,7 +7,6 @@ public class SudokuRow {
 
     public ArrayList<SudokuElement> sudokuRow() {
 
-
         return sudokuRow();
     }
 }
